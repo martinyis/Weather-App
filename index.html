@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Quotes App</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Manrope:500,600,700,800"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:500,600,700,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:500,600,"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container"></div>
+    </header>
+    <main class="page">
+      <div class="container">
+        <div class="weatherapp">
+          <div class="prewiew">
+            <div class="prewiew__container">
+              <div class="prewiew__task-bar">
+                <div class="prewiew__task-bar-search">
+                  <button class="prewiew__task-bar-search-btn">
+                    Seach for places
+                  </button>
+                </div>
+                <div class="prewiew__task-bar-gps">
+                  <i class="fa-sharp fa-solid fa-location-crosshairs"></i>
+                </div>
+              </div>
+              <div class="prewiew__picture" id="prewiew__picture">
+                <!-- <img src="img/weather/sun.png" alt="" /> -->
+              </div>
+              <div class="prewiew__dergee"></div>
+              <div class="prewiew__weather"></div>
+              <div class="prewiew__info">
+                <div class="prewiew__when">
+                  <div class="prewiew__when-day info-text"></div>
+                  <div class="prewiew__when-date info-text"></div>
+                </div>
+                <div class="prewiew__where info-text"></div>
+              </div>
+            </div>
+          </div>
+          <div class="search hidden">
+            <div class="search__container">
+              <div class="search__close">
+                <i class="fa-sharp fa-solid fa-xmark"></i>
+              </div>
+              <div class="search__find">
+                <form action="#" class="search__find-form">
+                  <input
+                    type="text"
+                    class="search__find-input"
+                    placeholder="search location"
+                  />
+                  <button class="search__find-btn">Search</button>
+                </form>
+              </div>
+              <!-- <div class="search__locations">
+                <div class="search__locations-first">Barcelona</div>
+                <div class="search__locations-arrow">
+                  <i class="fa-sharp fa-solid fa-chevron-right"></i>
+                </div>
+              </div> -->
+              <!-- <div class="search__locations">
+                <div class="search__locations-first">London</div>
+                <div class="search__locations-arrow">
+                  <i class="fa-sharp fa-solid fa-chevron-right"></i>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="details">
+          <div class="details__container">
+            <div class="details__format">
+              <div class="details__celcius">℃</div>
+              <div class="details__faringeits">℉</div>
+            </div>
+            <div class="details__box">
+              <div class="details__card">
+                <div class="details__card-day day-first">Tomorrow</div>
+                <div class="details__day-picture day-picture-first"></div>
+                <div class="details__day-temperature">
+                  <div class="details__day-temperature-now day-first-temp">
+                    16°C
+                  </div>
+                </div>
+              </div>
+              <div class="details__card">
+                <div class="details__card-day day-second">Tomorrow</div>
+                <div class="details__day-picture day-picture-second"></div>
+                <div class="details__day-temperature">
+                  <div class="details__day-temperature-now day-second-temp">
+                    16°C
+                  </div>
+                </div>
+              </div>
+              <div class="details__card">
+                <div class="details__card-day day-third">Tomorrow</div>
+                <div class="details__day-picture day-picture-third"></div>
+                <div class="details__day-temperature">
+                  <div class="details__day-temperature-now day-third-temp">
+                    16°C
+                  </div>
+                </div>
+              </div>
+              <div class="details__card">
+                <div class="details__card-day day-fourth">Tomorrow</div>
+                <div class="details__day-picture day-picture-fourth"></div>
+                <div class="details__day-temperature">
+                  <div class="details__day-temperature-now day-fourth-temp">
+                    16°C
+                  </div>
+                </div>
+              </div>
+              <div class="details__card">
+                <div class="details__card-day day-fifth">Tomorrow</div>
+                <div class="details__day-picture day-picture-fifth"></div>
+                <div class="details__day-temperature">
+                  <div class="details__day-temperature-now day-fifth-temp">
+                    16°C
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="details__title">Today's Hightlights</div>
+            <div class="details__info">
+              <div class="details__info-card">
+                <div class="details__info-card-name info-name">Wind status</div>
+                <div class="details__info-card-value wind info-value"></div>
+              </div>
+              <div class="details__info-card">
+                <div class="details__info-card-name info-name">Humidity</div>
+                <div class="details__info-card-value humidity info-value"></div>
+                <div class="details__info-bar">
+                  <div class="details__info-bar-numbers">
+                    <div class="details__info-bar-number">0</div>
+                    <div class="details__info-bar-number">50</div>
+                    <div class="details__info-bar-number">100</div>
+                  </div>
+                  <div class="details__info-bar-scale">
+                    <div class="details__info-bar-scale-yellow"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="details__info-card">
+                <div class="details__info-card-name info-name">Visibility</div>
+                <div
+                  class="details__info-card-value visibility info-value"
+                ></div>
+              </div>
+              <div class="details__info-card">
+                <div class="details__info-card-name info-name">
+                  Air Pressure
+                </div>
+                <div
+                  class="details__info-card-value air-pressure info-value mb"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer__container"></div>
+    </footer>
+    <script type="module" src="js/script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/15c1e9f995.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
