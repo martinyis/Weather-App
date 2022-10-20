@@ -176,7 +176,7 @@ const loadDayWeather = function (code, country) {
           }
         }
       });
-    });
+    }); 
 };
 const loadDayWeatherCity = function (city) {
   let url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=8b33b1d1e655f6558fd6ded7dfbd0caf&units=metric`;
