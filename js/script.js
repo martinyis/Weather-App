@@ -48,6 +48,10 @@ const bar = document.querySelector(".details__info-bar-scale-yellow");
 const picsDays = [day1Pic, day2Pic, day3Pic, day4Pic, day5Pic];
 const daysTemps = [day1Temp, day2Temp, day3Temp, day4Temp, day5Temp];
 
+//Variables for changing temperature
+const celciusBtn = document.querySelector(".details__celcius");
+const farengeitBtn = document.querySelector(".details__faringeits");
+
 //==============================================================================================WORK VARIABLES================================================================================================//\
 let daysDates = [5, 14, 23, 32, 39];
 let now = new Date().toLocaleDateString("en-us", {
