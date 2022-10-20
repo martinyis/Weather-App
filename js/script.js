@@ -56,6 +56,7 @@ let now = new Date().toLocaleDateString("en-us", {
   day: "numeric",
 });
 let currentCity = "";
+let defaultTemp = "celcius";
 function getDayName(date = new Date(), locale = "en-US") {
   return date.toLocaleDateString(locale, { weekday: "long" });
 }
@@ -73,17 +74,21 @@ const citiesArr = [];
 //==============================================================================================LOCAL STORAGE BAR================================================================================================//\
 const loadCitiesBar = function () {
   const cities = JSON.parse(localStorage.getItem("cities"));
-  cities.forEach((city) => {
-    let town = localStorage.getItem(`${city}`);
-    const markup = `<div class="search__locations ${town}">
-  <div class="search__locations-first">${town}</div>
-  <div class="search__locations-arrow">
-    <i class="fa-sharp fa-solid fa-chevron-right"></i>
-  </div>
-</div>`;
-    searchCont.insertAdjacentHTML("afterend", markup);
-    citiesArr.push(town);
-  });
+  if (cities) {
+    cities.forEach((city) => {
+      let town = localStorage.getItem(`${city}`);
+      const markup = `<div class="search__locations ${town}">
+    <div class="search__locations-first">${town}</div>
+    <div class="search__locations-arrow">
+      <i class="fa-sharp fa-solid fa-chevron-right"></i>
+    </div>
+  </div>`;
+      searchCont.insertAdjacentHTML("afterend", markup);
+      citiesArr.push(town);
+    });
+  } else {
+    return;
+  }
 };
 
 //==============================================================================================STARTING WEATHER================================================================================================//\
@@ -247,3 +252,46 @@ searchBody.addEventListener("click", function (e) {
   }
 });
 loadCitiesBar();
+
+
+//Change temp to celsius or fahrenheit
+const changeIntoCelcius = function () {
+  if (defaultTemp === "celcius") {
+    return;
+  } else {
+    defaultTemp = "celcius";
+    celciusBtn.style.backgroundColor = "#e7e7eb";
+    farengeitBtn.style.backgroundColor = "#585676";
+    let prewieDegree = document.querySelector(".prewiew__dergee");
+    let temp = document.querySelectorAll(".details__day-temperature-now");
+    temp.forEach((temp) => {
+      let num = temp.innerHTML.slice(0, -1);
+      num.includes("°") ? (num = num.slice(0, -1)) : (num = num);
+      temp.innerHTML = `${((num - 32) * (5 / 9)).toFixed(1)}°C`;
+    });
+    let degree = prewieDegree.innerHTML.slice(0, -1);
+    degree.includes("°") ? (degree = degree.slice(0, -1)) : (degree = degree);
+    prewieDegree.innerHTML = `${((degree - 32) * (5 / 9)).toFixed(1)}°C`;
+  }
+};
+const changeIntoFarenheit = function () {
+  if (defaultTemp === "farenheit") {
+    return;
+  } else {
+    defaultTemp = "farenheit";
+    farengeitBtn.style.backgroundColor = "#e7e7eb";
+    celciusBtn.style.backgroundColor = "#585676";
+    let prewieDegree = document.querySelector(".prewiew__dergee");
+    let temp = document.querySelectorAll(".details__day-temperature-now");
+    temp.forEach((temp) => {
+      let num = temp.innerHTML.slice(0, -1);
+      num.includes("°") ? (num = num.slice(0, -1)) : (num = num);
+      temp.innerHTML = `${(num * (9 / 5) + 32).toFixed(1)}°F`;
+    });
+    let degree = prewieDegree.innerHTML.slice(0, -1);
+    degree.includes("°") ? (degree = degree.slice(0, -1)) : (degree = degree);
+    prewieDegree.innerHTML = `${(degree * (9 / 5) + 32).toFixed(1)}°F`;
+  }
+};
+celciusBtn.addEventListener("click", changeIntoCelcius);
+farengeitBtn.addEventListener("click", changeIntoFarenheit);
